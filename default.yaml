@@ -1,0 +1,52 @@
+pipeline:
+  max_context_items: 20
+  agreement_threshold: 0.05
+
+knowledge_graph:
+  neo4j_uri: "bolt://localhost:7687"
+  neo4j_user: "neo4j"
+  neo4j_password: "password"
+  max_nodes: 150000
+  endocrinology_root_id: "362969004"
+  hop_decay: 0.85
+
+retrieval:
+  model_name: "BAAI/bge-m3"
+  index_path: "indices/nih_pubmed_bge_m3.faiss"
+  metadata_path: "indices/nih_pubmed_metadata.jsonl"
+  top_k: 10
+  device: "cuda"
+  batch_size: 32
+  rrf_k: 60
+
+hyde:
+  lm_model: "openai/gpt-4o-mini"
+  n_hypotheses: 3
+  domain: "endocrinology"
+  temperature: 0.7
+  max_tokens: 512
+  dspy_optimizer: "BootstrapFewShot"
+
+generation:
+  vllm_base_url: "http://localhost:8000"
+  model_name: "meta-llama/Meta-Llama-3-8B-Instruct"
+  temperature: 0.1
+  max_tokens: 1024
+  top_p: 0.9
+  timeout: 30.0
+
+safety:
+  contraindication_severity_threshold: "moderate"
+  whisper:
+    stt_model: "openai/whisper-large-v3"
+    tts_model: "tts-1-hd"
+    language: "en"
+    device: "cuda"
+
+evaluation:
+  gold_set_path: "data/adversarial_gold_set.jsonl"
+  batch_size: 32
+  regression_gates:
+    multi_hop_accuracy: 0.80
+    citation_precision: 0.88
+    contraindication_recall: 0.90
