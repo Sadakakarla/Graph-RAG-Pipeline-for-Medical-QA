@@ -2,6 +2,10 @@
 
 A safety-critical, multimodal RAG pipeline for endocrinology clinical decision support — combining SNOMED CT knowledge graphs, BGE-M3 dense retrieval, DSPy-tuned HyDE query rewriting, and Llama-3 generation with HIPAA-compliant PII redaction.
 
+Healthcare question answering is hard to do well because many clinically useful answers are not contained in a single document or single fact. Real medical questions often require multi-hop reasoning across comorbidities, medications, contraindications, symptoms, and disease relationships. Standard retrieval-augmented generation systems usually retrieve semantically similar text passages, but they often miss the structured connections needed to reason across multiple medical concepts. As a result, they can produce incomplete answers, weak citations, or unsafe conclusions.
+
+This project addresses that gap by building a multi-hop RAG system for medical QA that combines dense document retrieval with graph-based reasoning over a medical knowledge graph derived from SNOMED CT. The goal is to improve answer quality for complex endocrinology-focused questions by grounding generation in both unstructured medical literature and structured concept relationships. In addition to improving reasoning depth, the system is designed with safety in mind through PII redaction, citation grounding, contraindication-aware response checks, and evaluation against adversarial prompts.
+
 ## Results
 
 | Metric | Baseline | This System |
