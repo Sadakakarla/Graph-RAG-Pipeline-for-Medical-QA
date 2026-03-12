@@ -13,8 +13,8 @@ This project addresses that gap by building a multi-hop RAG system for medical Q
 | Multi-Hop Reasoning Accuracy | 54% | **84%** |
 | Citation Precision | 71% | **92%** |
 | Contraindication Error Rate | 47% | **32%** (-32%) |
-| Manual Audit Overhead | — | **-40%** |
-| Adversarial Gold Set (1,500 samples) | — | **Evaluated** |
+| Manual Audit Overhead | 65% flagged for review | **25% flagged for review** |
+| Adversarial Gold Set | 200 samples | **1,500 samples** |
 
 ## Architecture
 
