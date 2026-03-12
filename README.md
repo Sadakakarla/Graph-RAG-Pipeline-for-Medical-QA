@@ -1,4 +1,4 @@
-# Multi-Hop RAG Pipeline for Medical QA
+# Graph-RAG Pipeline for Medical QA
 
 A safety-critical, multimodal RAG pipeline for endocrinology clinical decision support — combining SNOMED CT knowledge graphs, BGE-M3 dense retrieval, DSPy-tuned HyDE query rewriting, and Llama-3 generation with HIPAA-compliant PII redaction.
 
